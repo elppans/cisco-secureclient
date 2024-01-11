@@ -23,7 +23,7 @@ options=('!strip')
 
 # you will have to obtain the installer yourself - it's not available publicly
 source=(
-"cisco-secure-client-linux64-5.1.0.136-predeploy-k9.tar.gz::file:///$HOME/work/cisco-anyconnect/cisco-secure-client-linux64-5.1.0.136-predeploy-k9.tar.gz"
+"cisco-secure-client-linux64-5.1.0.136-predeploy-k9.tar.gz::https://drive.usercontent.google.com/download?id=1Mn2nVghxXIgodZn1xfV4tR4RNQOJ7fi8&export=download&confirm=t&uuid=56ac9412-10b5-481d-84e1-08b9b90e1189"
 "${pkgname}.sh"
 "AnyConnectLocalPolicy.xml"
 )
