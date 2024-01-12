@@ -3,7 +3,7 @@
 
 
 pkgname=cisco-secureclient
-pkgver=5.1.0.136
+pkgver=5.1.1.42
 pkgrel=1
 pkgdesc='Cisco AnyConnect Secure Mobility Client'
 url='https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html'
@@ -23,7 +23,7 @@ options=('!strip')
 
 # you will have to obtain the installer yourself - it's not available publicly
 source=(
-"cisco-secure-client-linux64-5.1.0.136-predeploy-k9.tar.gz::https://drive.usercontent.google.com/download?id=1Mn2nVghxXIgodZn1xfV4tR4RNQOJ7fi8&export=download&confirm=t&uuid=56ac9412-10b5-481d-84e1-08b9b90e1189"
+"cisco-secure-client-linux64-$pkgver-predeploy-k9.tar.gz::https://cios.dhitechnical.com/Cisco_Firewall_ASA_FTD/Cisco%20Secure%20Client%205.x/$pkgver/cisco-secure-client-linux64-$pkgver-predeploy-k9.tar.gz"
 "${pkgname}.sh"
 "AnyConnectLocalPolicy.xml"
 )
@@ -75,6 +75,7 @@ package() {
     install -Dm644 resources/vpnui128.png "${pkgdir}/usr/share/icons/hicolor/128x128/apps/cisco-secureclient.png"
 
     sed -i "s|^Exec=.*|Exec=${pkgname}|g" com.cisco.secureclient.gui.desktop
+    echo -e 'Categories=Network' com.cisco.secureclient.gui.desktop
     install -Dm644 com.cisco.secureclient.gui.desktop "${pkgdir}/usr/share/applications/cisco-secureclient.desktop"
 
     # install license
