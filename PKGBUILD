@@ -75,7 +75,7 @@ package() {
     install -Dm644 resources/vpnui128.png "${pkgdir}/usr/share/icons/hicolor/128x128/apps/cisco-secureclient.png"
 
     sed -i "s|^Exec=.*|Exec=${pkgname}|g" com.cisco.secureclient.gui.desktop
-    echo -e 'Categories=Network' com.cisco.secureclient.gui.desktop
+    echo -e 'Categories=Network' >> com.cisco.secureclient.gui.desktop
     install -Dm644 com.cisco.secureclient.gui.desktop "${pkgdir}/usr/share/applications/cisco-secureclient.desktop"
 
     # install license
