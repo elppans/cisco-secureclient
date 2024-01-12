@@ -28,7 +28,7 @@ source=(
 "AnyConnectLocalPolicy.xml"
 )
 
-sha256sums=('178c2f1abcdac20c70f8cd8f2957a0b33d6d00474fcc2fb1469d36a6ba3d9482'
+sha256sums=('24053897da064b6aa9da1835f36b42ad21a76949733e1cb01ee2b95175088fa4'
             'd29746d526ae87d011a1b988531d72a1b0da018872f22b3dd8ebd2fc2082bda2'
             'f356c6bca23bb187e8e6c2d6504d9a0c30f7d45f6c78bef399e67a5d5079343d')
 
