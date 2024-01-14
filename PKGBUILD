@@ -66,6 +66,9 @@ package() {
     # install some misc stuff
     install -Dm444 AnyConnectProfile.xsd "${pkgdir}/opt/cisco/secureclient/profile/AnyConnectProfile.xsd"
 
+    # Profile directory for vpn
+    mkdir -p "${pkgdir}/opt/cisco/secureclient/vpn/profile"
+
     for file in "ACManifestVPN.xml" "update.txt" "AnyConnectLocalPolicy.xsd"; do
         install -Dm444 ${file} "${pkgdir}/opt/cisco/secureclient/${file}"
     done
