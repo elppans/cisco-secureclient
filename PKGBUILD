@@ -3,7 +3,7 @@
 
 
 pkgname=cisco-secureclient
-pkgver=5.1.1.42
+pkgver=5.1.3.62
 pkgrel=1
 pkgdesc='Cisco AnyConnect Secure Mobility Client'
 url='https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html'
@@ -28,19 +28,20 @@ source=(
 "AnyConnectLocalPolicy.xml"
 "secureclient.csh"
 "vpnagentd.service"
-"glib2-2.78.0-3-x86_64.pkg.tar.zst::https://archive.archlinux.org/packages/g/glib2/glib2-2.78.0-3-x86_64.pkg.tar.zst"
-"icu-73.2-2-x86_64.pkg.tar.zst::https://archive.archlinux.org/packages/i/icu/icu-73.2-2-x86_64.pkg.tar.zst"
-"libxml2-2.11.5-1-x86_64.pkg.tar.zst::https://archive.archlinux.org/packages/l/libxml2/libxml2-2.11.5-1-x86_64.pkg.tar.zst"
+#"glib2-2.78.0-3-x86_64.pkg.tar.zst::https://archive.archlinux.org/packages/g/glib2/glib2-2.78.0-3-x86_64.pkg.tar.zst"
+#"icu-73.2-2-x86_64.pkg.tar.zst::https://archive.archlinux.org/packages/i/icu/icu-73.2-2-x86_64.pkg.tar.zst"
+#"libxml2-2.11.5-1-x86_64.pkg.tar.zst::https://archive.archlinux.org/packages/l/libxml2/libxml2-2.11.5-1-x86_64.pkg.tar.zst"
 )
 
-sha256sums=('24053897da064b6aa9da1835f36b42ad21a76949733e1cb01ee2b95175088fa4'
+sha256sums=('498fbf11b9b89ee6dcaaef6f86eec80312e92ccd350462eb11857137f3e1c64c'
             'd29746d526ae87d011a1b988531d72a1b0da018872f22b3dd8ebd2fc2082bda2'
             'f356c6bca23bb187e8e6c2d6504d9a0c30f7d45f6c78bef399e67a5d5079343d'
             '2ea2fc2e19a3c60f41e4abe927b59f354661e7bc56853bd898c25623c3c6921d'
             '16cb83e28046758d35f4e2cebbd926fc65a12ebc6100869dc51ec647336d2c28'
-            '9ef6d5c2cce40e830407385a23552168e29839ed3df70fc6b27588878fcb9a81'
-            '08214df990ee8ba3f8416f91a03f6010e5811f8c8b373cb09ec375e9461e4c8a'
-            '86f75735ed68ea7495687560b850c2f5d3f369f5277283861182ed8c04b6b780')
+            #'9ef6d5c2cce40e830407385a23552168e29839ed3df70fc6b27588878fcb9a81'
+            #'08214df990ee8ba3f8416f91a03f6010e5811f8c8b373cb09ec375e9461e4c8a'
+            #'86f75735ed68ea7495687560b850c2f5d3f369f5277283861182ed8c04b6b780'
+            )
 
 package() {
     cd "${srcdir}/cisco-secure-client-linux64-${pkgver}/vpn"
@@ -121,10 +122,10 @@ package() {
 
     #Installation of the old libraries, glib, icu and libxml2.
     #Without them in this particular version, it is not possible to connect the VPNs.
-    cd "${srcdir}/usr/lib"
-    mkdir -p "${pkgdir}/opt/cisco/lib_other"
-    for olib in $(ls -1 lib*);do
-        install -Dm755 ${olib} "${pkgdir}/opt/cisco/lib_other/${olib}"
-    done
-     sed -i "/export/s/lib/lib:\/opt\/cisco\/lib_other/" "${pkgdir}/usr/bin/cisco-secureclient"
+    #cd "${srcdir}/usr/lib"
+    #mkdir -p "${pkgdir}/opt/cisco/lib_other"
+    #for olib in $(ls -1 lib*);do
+    #    install -Dm755 ${olib} "${pkgdir}/opt/cisco/lib_other/${olib}"
+    #done
+    # sed -i "/export/s/lib/lib:\/opt\/cisco\/lib_other/" "${pkgdir}/usr/bin/cisco-secureclient"
 }
