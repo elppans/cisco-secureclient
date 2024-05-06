@@ -1,10 +1,10 @@
 Cisco Secure Client 5.1.3.62 Linux
 
-Recomendado em:
+Build Testing:
+manjaro-kde-23.1.4-240406-linux66 (Fully updated 24.05.05):  
+Linux manjaro-vm 6.6.26-1-MANJARO #1 SMP PREEMPT_DYNAMIC Wed Apr 10 20:11:08 UTC 2024 x86_64 GNU/Linux  
 
-Manjaro+, BIG Linux
-
-Testado em:
+Tested on:
 
 Archlinux
 Manjaro Plasma
@@ -12,12 +12,12 @@ BIG Linux
 
 Ubuntu:
 
-Informação do sistema:
+Testing on another system (Compiled package):
 
 Ubuntu 22.04.4 LTS
 Linux ubuntu-virtual-machine 6.5.0-28-generic #29~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  4 14:39:20 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
 
-Dependências instaladas:
+Installed dependencies:
 
 ii  libxml2:amd64  2.9.13+dfsg-1ubuntu0.4
 ii  ca-certificates      20230311ubuntu0.22.04.1 amd64
@@ -27,22 +27,14 @@ ii  libgtk2.0-bin              2.24.33-2ubuntu2 amd64
 ii  libglib2.0-bin               2.72.4-0ubuntu2.2 amd64
 ii  libgtk-3-bin         3.24.33-1ubuntu2 amd64
 
-Instalação:
+Installation:
 
+sudo apt update && sudo apt -y install zstd
 mkdir -p ~/build && cd ~/build
-
-curl -JOLk "https://www.dropbox.com/scl/fi/1pas5685phlf7qrxpo84n/cisco-secureclient-5.1.3.62-1-x86_64.pkg.tar.zst?rlkey=qnb2rcl0oj3qbr0h90091uohv&st=qxmw7w4b&dl=0"
-curl -JOLk "https://www.dropbox.com/scl/fi/1o58a96aae59p4v1y9m9l/cisco-secureclient-profiles-24.05.01-1-any.pkg.tar.zst?rlkey=hjii7mqbb4x2pwl4oz01hxyrf&st=7qqcnvg6&dl=0"
-
-sudo apt-get update && sudo apt-get -y install zstd
-
+curl -JOLk "https://link.to/cisco-secureclient-5.1.3.62-1-x86_64.pkg.tar.zst"
 zstd -d cisco-secureclient-5.1.3.62-1-x86_64.pkg.tar.zst
-zstd -d cisco-secureclient-profiles-24.05.01-1-any.pkg.tar.zst
-
 cd /
 sudo tar -xvf ~/build/cisco-secureclient-5.1.3.62-1-x86_64.pkg.tar {opt,usr}
-sudo tar -xvf ~/build/cisco-secureclient-profiles-24.05.01-1-any.pkg.tar opt
-
 sudo ldconfig
 sudo systemctl daemon-reload
 sudo systemctl enable --now vpnagentd.service
