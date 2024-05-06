@@ -10,8 +10,6 @@ Archlinux
 Manjaro Plasma
 BIG Linux
 
-Ubuntu:
-
 Testing on another system (Compiled package):
 
 Ubuntu 22.04.4 LTS
